@@ -1,0 +1,13 @@
+<h1> welcome to python django project </h1>
+<div> {% if request.user.is_authenticated %}
+  {% if request.user.is_superuser %}
+  <a href="/admin">{{ request.user.username }}</a>
+  {% else %}
+  <a>{{ request.user.username }}</a>
+  {% endif %}
+  <a href="{% url 'logout' %}">Logout</a>
+  {% else %}
+  <a href="{% url 'login' %}"> Login</a>
+  <a href="{% url 'signup' %}"> SignUp</a>
+  {% endif %}
+</div>
